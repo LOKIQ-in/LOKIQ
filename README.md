@@ -1,15 +1,12 @@
-# LOKIQ — Digital Marketing Agency Website
+# Adding your videos
 
-A free, static one-page website for LOKIQ, built with plain HTML/CSS/JS (no build step needed) — ready to host free on GitHub Pages.
+Drop your reel files into this folder with these exact names to have them appear automatically in the "Work" section:
 
-## Files
-- `index.html` — page content
-- `style.css` — styling
-- `script.js` — small interactions (footer year, scroll reveal)
-- `images/logo.jpg` — LOKIQ logo
+- `darling.mp4` — the Darling reel
+- `vit.mp4` — the VIT reel
 
-## To edit
-Open `index.html` in any text editor to change text, and `style.css` to change colors/fonts. No build tools required — just edit and refresh.
-
-## To publish for free with GitHub Pages
-See the deployment steps provided alongside this file.
+## Tips
+- Keep each file under ~15MB if possible (compress with HandBrake or CapCut export settings) so the site loads fast — GitHub also has a 25MB file-size limit for drag-and-drop uploads, and 100MB per-file hard limit via git.
+- MP4 (H.264) format works everywhere.
+- If a video file is missing, the card automatically falls back to the colored brand tile — nothing breaks.
+- Want a 4th, 5th, 6th case study? Duplicate a `<article class="work-card">` block in `index.html`, give the video a new filename, and drop the matching file in here.

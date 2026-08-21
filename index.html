@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-   <meta name="google-site-verification" content="aPA9TgLo-FYuA3KlwANj01LRe00RXpvf8pBnwA5yn4E" />
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>LOKIQ — Digital Marketing Agency</title>
@@ -46,27 +45,67 @@
 
   <!-- HERO -->
   <section class="hero">
-    <div class="wrap hero-inner">
-      <p class="eyebrow hero-anim d1"><span class="dot"></span>Local-first digital marketing</p>
-      <h1 class="hero-anim d2">Helping local businesses get <span class="grad-text">seen</span>, <span class="grad-text">trusted</span> &amp; <span class="grad-text">chosen.</span></h1>
-      <p class="hero-sub hero-anim d3">LOKIQ is a full-funnel marketing partner for local and growing brands — from the first ad impression to the sale that keeps them coming back.</p>
-      <div class="hero-cta hero-anim d4">
-        <a href="#contact" class="btn btn-primary">Start a project</a>
-        <a href="#work" class="btn btn-ghost">See our work</a>
+    <canvas id="networkCanvas" class="network-canvas" aria-hidden="true"></canvas>
+    <div class="blob blob-1" aria-hidden="true"></div>
+    <div class="blob blob-2" aria-hidden="true"></div>
+
+    <div class="wrap hero-inner hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow hero-anim d1"><span class="dot"></span>Local-first digital marketing</p>
+        <h1 class="hero-anim d2">Helping local businesses get <span class="grad-text">seen</span>, <span class="grad-text">trusted</span> &amp; <span class="grad-text">chosen.</span></h1>
+        <p class="hero-sub hero-anim d3">LOKIQ is a full-funnel marketing partner for local and growing brands — from the first ad impression to the sale that keeps them coming back.</p>
+        <div class="hero-cta hero-anim d4">
+          <a href="#contact" class="btn btn-primary">Start a project</a>
+          <a href="#work" class="btn btn-ghost">See our work</a>
+        </div>
+        <div class="hero-stats hero-anim d5">
+          <div class="stat">
+            <span class="stat-num" data-count="5">0</span>
+            <span class="stat-label">core services</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num" data-count="2" data-suffix="+">0</span>
+            <span class="stat-label">brands scaled</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num" data-count="1">0</span>
+            <span class="stat-label">partner, full funnel</span>
+          </div>
+        </div>
       </div>
-      <div class="hero-stats hero-anim d5">
-        <div class="stat">
-          <span class="stat-num" data-count="5">0</span>
-          <span class="stat-label">core services</span>
+
+      <div class="hero-visual hero-anim d3" aria-hidden="true">
+        <div class="chart-card">
+          <div class="chart-card-head">
+            <span class="chart-dot"></span>
+            <span>Growth this quarter</span>
+          </div>
+          <svg class="growth-chart" viewBox="0 0 320 180">
+            <defs>
+              <linearGradient id="chartFill" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#2E86EB" stop-opacity="0.35"/>
+                <stop offset="100%" stop-color="#2E86EB" stop-opacity="0"/>
+              </linearGradient>
+            </defs>
+            <g class="chart-bars">
+              <rect x="20"  y="130" width="26" height="0" data-h="50"  rx="4"/>
+              <rect x="66"  y="130" width="26" height="0" data-h="70"  rx="4"/>
+              <rect x="112" y="130" width="26" height="0" data-h="55"  rx="4"/>
+              <rect x="158" y="130" width="26" height="0" data-h="95"  rx="4"/>
+              <rect x="204" y="130" width="26" height="0" data-h="80"  rx="4"/>
+              <rect x="250" y="130" width="26" height="0" data-h="120" rx="4"/>
+            </g>
+            <path class="chart-line" d="M33,110 L79,90 L125,100 L171,45 L217,60 L263,20" />
+            <path class="chart-area" d="M33,110 L79,90 L125,100 L171,45 L217,60 L263,20 L263,150 L33,150 Z" fill="url(#chartFill)" />
+            <g class="chart-arrow">
+              <path d="M250,25 L268,12 M268,12 L268,26 M268,12 L254,12" />
+            </g>
+          </svg>
+          <p class="chart-caption">Traffic &amp; leads trending up across active campaigns</p>
         </div>
-        <div class="stat">
-          <span class="stat-num" data-count="2" data-suffix="+">0</span>
-          <span class="stat-label">brands scaled</span>
-        </div>
-        <div class="stat">
-          <span class="stat-num" data-count="1">0</span>
-          <span class="stat-label">partner, full funnel</span>
-        </div>
+        <div class="orbit-icon orbit-1">📈</div>
+        <div class="orbit-icon orbit-2">🎯</div>
+        <div class="orbit-icon orbit-3">✨</div>
       </div>
     </div>
   </section>
@@ -122,7 +161,13 @@
 
       <div class="work-grid">
         <article class="work-card">
-          <div class="work-thumb" data-brand="darling"><span>DARLING</span></div>
+          <div class="work-thumb work-video-thumb" data-brand="darling">
+            <video class="work-video" muted loop playsinline preload="metadata" poster="">
+              <source src="videos/darling.mp4" type="video/mp4">
+            </video>
+            <div class="work-thumb-fallback"><span>DARLING</span></div>
+            <button class="play-btn" aria-label="Play Darling reel" type="button">▶</button>
+          </div>
           <div class="work-body">
             <h3>Darling</h3>
             <p>Short-form reel content built to drive local footfall and brand recall.</p>
@@ -130,7 +175,13 @@
           </div>
         </article>
         <article class="work-card">
-          <div class="work-thumb" data-brand="vit"><span>VIT</span></div>
+          <div class="work-thumb work-video-thumb" data-brand="vit">
+            <video class="work-video" muted loop playsinline preload="metadata" poster="">
+              <source src="videos/vit.mp4" type="video/mp4">
+            </video>
+            <div class="work-thumb-fallback"><span>VIT</span></div>
+            <button class="play-btn" aria-label="Play VIT reel" type="button">▶</button>
+          </div>
           <div class="work-body">
             <h3>Vellore Institute of Technology</h3>
             <p>Institutional-scale video content produced for a large, high-visibility audience.</p>

@@ -50,6 +50,10 @@ ul{list-style:none;}
   opacity:0.35;
   stroke-dasharray: 6 10;
   stroke-linecap: round;
+  animation: dashFlow 40s linear infinite;
+}
+@keyframes dashFlow{
+  to{ stroke-dashoffset: -1000; }
 }
 
 /* ============ HEADER ============ */
@@ -58,18 +62,32 @@ ul{list-style:none;}
   background: rgba(246,248,252,0.85);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--line);
+  transition: box-shadow .3s ease, padding .3s ease;
+}
+.site-header.scrolled{
+  box-shadow: 0 8px 24px -16px rgba(10,24,52,0.3);
 }
 .header-inner{
   display:flex; align-items:center; justify-content:space-between;
   padding: 14px 28px;
+  transition: padding .3s ease;
 }
-.brand-logo{ height: 34px; width:auto; }
+.site-header.scrolled .header-inner{ padding: 9px 28px; }
+.brand-logo{ height: 34px; width:auto; transition: height .3s ease; }
+.site-header.scrolled .brand-logo{ height: 28px; }
 .nav-links{ display:flex; gap: 32px; }
 .nav-links a{
   font-size: 0.92rem; font-weight: 600; color: var(--text-soft);
   transition: color .2s ease;
+  position: relative;
+}
+.nav-links a::after{
+  content:''; position:absolute; left:0; bottom:-4px; width:0; height:2px;
+  background: linear-gradient(90deg, var(--blue), var(--sky));
+  transition: width .25s ease;
 }
 .nav-links a:hover{ color: var(--blue); }
+.nav-links a:hover::after{ width:100%; }
 
 .btn{
   display:inline-flex; align-items:center; justify-content:center;
@@ -103,7 +121,15 @@ ul{list-style:none;}
   padding: 7px 14px; border-radius: 999px;
   margin-bottom: 26px;
 }
-.dot{ width:7px; height:7px; border-radius:50%; background: var(--sky); box-shadow: 0 0 0 4px rgba(95,182,245,0.25); }
+.dot{
+  width:7px; height:7px; border-radius:50%; background: var(--sky);
+  box-shadow: 0 0 0 4px rgba(95,182,245,0.25);
+  animation: pulseDot 2.2s ease-in-out infinite;
+}
+@keyframes pulseDot{
+  0%, 100%{ box-shadow: 0 0 0 4px rgba(95,182,245,0.25); }
+  50%{ box-shadow: 0 0 0 8px rgba(95,182,245,0.12); }
+}
 
 .hero h1{
   font-family: var(--font-display);
@@ -115,8 +141,15 @@ ul{list-style:none;}
   margin-bottom: 26px;
 }
 .grad-text{
-  background: linear-gradient(100deg, var(--blue) 10%, var(--blue-bright) 55%, var(--sky) 100%);
+  background: linear-gradient(100deg, var(--blue) 10%, var(--blue-bright) 45%, var(--sky) 65%, var(--blue-bright) 85%);
+  background-size: 250% auto;
   -webkit-background-clip: text; background-clip: text; color: transparent;
+  animation: shimmer 6s ease-in-out infinite;
+}
+@keyframes shimmer{
+  0%{ background-position: 0% center; }
+  50%{ background-position: 100% center; }
+  100%{ background-position: 0% center; }
 }
 .hero-sub{
   font-size: 1.15rem; color: var(--text-soft);
@@ -131,6 +164,21 @@ ul{list-style:none;}
 .stat{ display:flex; flex-direction:column; gap: 4px; }
 .stat-num{ font-family: var(--font-display); font-weight:800; font-size: 2rem; color: var(--ink); }
 .stat-label{ font-size: 0.85rem; color: var(--text-soft); }
+
+/* hero entrance */
+.hero-anim{
+  opacity: 0;
+  transform: translateY(22px);
+  animation: heroRise .8s cubic-bezier(.22,1,.36,1) forwards;
+}
+.hero-anim.d1{ animation-delay: .05s; }
+.hero-anim.d2{ animation-delay: .16s; }
+.hero-anim.d3{ animation-delay: .28s; }
+.hero-anim.d4{ animation-delay: .40s; }
+.hero-anim.d5{ animation-delay: .52s; }
+@keyframes heroRise{
+  to{ opacity: 1; transform: translateY(0); }
+}
 
 /* ============ SECTIONS (shared) ============ */
 .section{ position:relative; z-index:1; padding: 100px 0; }
@@ -174,6 +222,15 @@ ul{list-style:none;}
   width: 46px; height:46px; border-radius: 12px; margin-bottom: 20px;
   background: linear-gradient(135deg, var(--blue) 0%, var(--sky) 100%);
   position: relative;
+  animation: floatIcon 4s ease-in-out infinite;
+}
+.service-card:nth-child(2) .service-icon{ animation-delay: .3s; }
+.service-card:nth-child(3) .service-icon{ animation-delay: .6s; }
+.service-card:nth-child(4) .service-icon{ animation-delay: .9s; }
+.service-card:nth-child(5) .service-icon{ animation-delay: 1.2s; }
+@keyframes floatIcon{
+  0%, 100%{ transform: translateY(0); }
+  50%{ transform: translateY(-6px); }
 }
 .service-icon::after{
   content:''; position:absolute; inset:12px;
